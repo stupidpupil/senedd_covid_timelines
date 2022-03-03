@@ -21,7 +21,7 @@ fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 		datestamp <- el %>% 
 			html_element("h3") %>% html_text() %>% 
 			stringr::str_replace("Juky", "July") %>% # Fix a spelling error
-			strptime("%d %B %Y")
+			strptime("%d %B %Y") %>% lubridate::as_date()
 
 		content_html <- el %>% html_elements("p") %>% as.character() %>% paste(collapse="\n")
 
