@@ -1,8 +1,6 @@
 fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 
-
 	timeline_html <- rvest::read_html(timeline_url)
-
 
 	timeline_element <- timeline_html %>% html_element(".timeline")
 
@@ -45,8 +43,6 @@ fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 		ret_tibble <- ret_tibble %>% 
 			distinct() %>% bind_cols(cymraeg_tibble)
 	}
-
-
 
 	return(ret_tibble)
 }
