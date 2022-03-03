@@ -21,6 +21,10 @@ fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 			stringr::str_replace("Juky", "July") %>% # Fix a spelling error
 			strptime("%d %B %Y") %>% lubridate::as_date()
 
+		links <- el %>% html_elements("a")
+
+		purrr::walk(links, function(x){xml2::xml_attr(x, "href") <- un_outlook_protect_url(xml2::xml_attr(x, "href"))})
+
 		content_html <- el %>% html_elements("p") %>% as.character() %>% paste(collapse="\n")
 
 		return(list(title=title, datestamp=datestamp, content_html=content_html))
@@ -43,6 +47,7 @@ fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 		ret_tibble <- ret_tibble %>% 
 			distinct() %>% bind_cols(cymraeg_tibble)
 	}
+
 
 	return(ret_tibble)
 }
