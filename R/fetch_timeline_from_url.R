@@ -23,7 +23,9 @@ fetch_timeline_from_url <- function(timeline_url, locale="en_GB.utf8"){
 
 		links <- el %>% html_elements("a")
 
-		purrr::walk(links, function(x){xml2::xml_attr(x, "href") <- un_outlook_protect_url(xml2::xml_attr(x, "href"))})
+		purrr::walk(links, function(x){xml2::xml_attr(x, "href") <- clean_url(xml2::xml_attr(x, "href"))})
+
+		#print(xml2::xml_attr(links, "href"))
 
 		content_html <- el %>% html_elements("p") %>% as.character() %>% paste(collapse="\n")
 
