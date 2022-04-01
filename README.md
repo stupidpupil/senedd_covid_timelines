@@ -1,6 +1,10 @@
-This repository contains R code to extract events from two timelines of periods of the COVID-19 pandemic put together by the Senedd Research team into a table. The output can be found in the [output](output) directory.
+This repository contains R code to extract events from two timelines ([First](https://research.senedd.wales/research-articles/coronavirus-timeline-welsh-and-uk-governments-response/), [Second](https://research.senedd.wales/research-articles/coronavirus-timeline-the-response-in-wales/)) of periods of the COVID-19 pandemic put together by the Senedd Research team into a table. The output can be found in the [output](output) directory.
 
 As well as extracting the timelines' events into a more easily reused format, it does some basic cleaning of the underlying information - for example, it removes Microsoft Outlook SafeLinks wrappers and Google Analytics trackers from links in event descriptions.
+
+# Update - April 2022
+
+Since I created this repository, Senedd Research have added Excel versions of the timelines themselves!
 
 # How-to
 
